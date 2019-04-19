@@ -1,0 +1,29 @@
+.search-bar {
+    height: 40px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .col-12 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ddd;
+        cursor: text;
+        font-weight: 500;
+    }
+
+    input {
+        text-align: center;
+        border: unset;
+        color: #999;
+        width: 95%;
+
+        &:focus {
+            outline: unset;
+        }
+    }
+}

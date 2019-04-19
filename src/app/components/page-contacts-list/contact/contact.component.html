@@ -1,0 +1,18 @@
+<div class="row mx-0 p-2">
+  <div class="col-2 p-0">
+    <div class="image mx-auto">
+      <img src="../../../assets/user.svg" width="100%" height="100%">
+    </div>
+  </div>
+  <div class="col p-0 my-auto mx-2">
+    <p class="name mb-0">{{contact?.firstName | titlecase}} {{contact?.lastName | titlecase}}</p>
+    <p class="info mb-0">
+      {{contact?.mobileNumber?
+      contact?.mobileNumber:
+      contact?.email?
+      contact?.email:
+      contact?.userName?
+      contact?.userName:
+      ''}}</p>
+  </div>
+</div>

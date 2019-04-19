@@ -1,0 +1,42 @@
+<div class="row mx-0">
+  <div class="col-12 p-0">
+    <div class="search-row py-2 px-3">
+      <app-search [type]="'Contacts'" (emitSearchString)="searchContacts($event)"></app-search>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0 new-contact p-2" [routerLink]="['/contacts','add']">
+  <div class="col-11 p-0">
+    <p class="mb-0 mx-1 d-inline-block">Add New Contact</p>
+  </div>
+  <div class="col-1 p-0 text-right">
+    <img src="../../../assets/add.svg" width="16px" height="16px">
+  </div>
+</div>
+
+<div class="row mx-0 list">
+  <div class="col p-0">
+    <div class="px-2 header">
+      <p class="mb-0 mx-1">Latest Contacts</p>
+    </div>
+    <div class="px-2 contact" *ngFor="let contact of recent">
+      <app-contact [contact]="contact"></app-contact>
+    </div>
+
+    <div class="all p-0" *ngFor="let contact of sortedList | keyvalue">
+      <div class="px-2 header" *ngIf="contact.value.length>0" [id]="contact.key">
+        <p class="mb-0 mx-1">{{contact.key}}</p>
+      </div>
+      <div class="px-2 contact" *ngFor="let ele of contact.value | search:searchString">
+        <app-contact [contact]="ele"></app-contact>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollbar p-0 my-5 mr-5">
+    <p class="char mb-0 mx-1 text-center" *ngFor="let char of alphabets" (click)="scroll(char)"
+      [ngClass]="{clickable:sortedList[char]}">
+      {{char}}</p>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from './../../services/contacts.service';
 import { Router } from '@angular/router';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-page-contact-profile',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PageContactProfileComponent implements OnInit {
 
+  url = environment.url;
   image;
 
   constructor(

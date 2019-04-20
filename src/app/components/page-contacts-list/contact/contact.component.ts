@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -6,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+
+  url = environment.url;
 
   @Input() contact;
 
@@ -15,6 +18,6 @@ export class ContactComponent implements OnInit {
   }
 
   replaceMissedPhoto(e) {
-    e.target.src = '../../../assets/user.svg';
+    e.target.src = `${this.url}user.svg`;
   }
 }

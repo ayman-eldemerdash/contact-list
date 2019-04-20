@@ -6,7 +6,7 @@
                     (keyup)="emitSearchString.emit(searchString)" (blur)="searchIsActive=false">
             </div>
             <div class="col-12 p-0" (click)="activateSearch()" *ngIf="!searchString && !searchIsActive">
-                <img class="mx-2" src="../../../assets/search.svg" width="19px" height="19px">
+                <img class="mx-2" [src]="url+'search.svg'" width="19px" height="19px">
                 <p class="title mb-0 d-inline-block">Search {{type}}</p>
             </div>
         </div>

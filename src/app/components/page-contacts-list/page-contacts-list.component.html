@@ -11,7 +11,7 @@
     <p class="mb-0 mx-1 d-inline-block">Add New Contact</p>
   </div>
   <div class="col-1 p-0 text-right">
-    <img src="../../../assets/add.svg" width="16px" height="16px">
+    <img [src]="url+'add.svg'" (error)="replaceMissedPhoto($event)" width="16px" height="16px">
   </div>
 </div>
 

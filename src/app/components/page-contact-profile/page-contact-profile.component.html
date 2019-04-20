@@ -8,7 +8,7 @@
   <div class="row m-3">
     <input #contactImage style="display:none" type="file" (change)="uploadPhoto($event)" class="form-control">
     <div class="image mx-auto mt-4" (click)="contactImage.click()">
-      <img [src]="image?image:'../../../assets/user.svg'" width="100%" height="100%">
+      <img [src]="image?image:url+'user.svg'" width="100%" height="100%">
     </div>
     <p class="my-1 col-12 text-center" (click)="contactImage.click()">Add Photo</p>
   </div>

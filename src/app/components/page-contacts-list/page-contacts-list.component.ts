@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from './../../services/contacts.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-page-contacts-list',
@@ -7,6 +8,9 @@ import { ContactsService } from './../../services/contacts.service';
   styleUrls: ['./page-contacts-list.component.scss']
 })
 export class PageContactsListComponent implements OnInit {
+
+  url = environment.url;
+
   recent = [];
   all = [];
   sortedList = {};
@@ -50,5 +54,9 @@ export class PageContactsListComponent implements OnInit {
       const element = document.getElementById(e);
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
+  }
+
+  replaceMissedPhoto(e) {
+    e.target.src = `${this.url}user.svg`;
   }
 }

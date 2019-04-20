@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef }
 })
 export class SearchComponent implements OnInit {
 
+  url = environment.url;
   @Input() type;
   @Output() emitSearchString = new EventEmitter();
   @ViewChild('search') search: ElementRef;

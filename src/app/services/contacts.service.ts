@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ContactsService {
 
-  recent = [
+  recent: any = [
     {
       contactId: 'nHKnF54asnurEqdv',
       email: 'moaaz@vapulus.com',
@@ -35,7 +35,7 @@ export class ContactsService {
     }
   ];
 
-  all = [
+  all: any = [
     {
       userId: null,
       email: 'abdelmonem.salem.as@gmail.com',

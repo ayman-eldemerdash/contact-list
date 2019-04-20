@@ -21,22 +21,28 @@ export class PageContactsListComponent implements OnInit {
     this.recent = this.contactsService.recent;
     this.all = this.contactsService.all;
     if (this.all) {
-      this.prepareContactList();
+      this.goupingList();
     }
   }
 
-  prepareContactList() {
+  goupingList() {
     this.all.forEach(contact => {
       if (contact.firstName) {
         contact.firstName = contact.firstName.charAt(0).toUpperCase() + contact.firstName.slice(1);
-        if (!this.sortedList[contact.firstName[0]]) {
-          this.sortedList[contact.firstName[0]] = [contact];
-        } else {
-          this.sortedList[contact.firstName[0]].push(contact);
-        }
+        // tslint:disable-next-line: max-line-length
+        !this.sortedList[contact.firstName[0]] ? this.sortedList[contact.firstName[0]] = [contact] : this.sortedList[contact.firstName[0]].push(contact);
       }
-      contact.lastName = contact.lastName ? contact.lastName.charAt(0).toUpperCase() + contact.lastName.slice(1) : contact.lastName;
     });
+    this.sortingList();
+  }
+
+  sortingList() {
+    for (const key in this.sortedList) {
+      if (this.sortedList.hasOwnProperty(key)) {
+        // tslint:disable-next-line: max-line-length
+        this.sortedList[key].sort((a, b) => (a.firstName > b.firstName) ? 1 : (a.firstName === b.firstName) ? ((a.lastName > b.lastName) ? 1 : -1) : -1);
+      }
+    }
   }
 
   scroll(e) {
@@ -45,9 +51,4 @@ export class PageContactsListComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   }
-
-  searchContacts(searchString) {
-    this.searchString = searchString.toString();
-  }
-
 }

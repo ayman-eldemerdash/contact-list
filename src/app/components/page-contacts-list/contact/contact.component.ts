@@ -14,4 +14,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
+  replaceMissedPhoto(e) {
+    e.target.src = '../../../assets/user.svg';
+  }
 }

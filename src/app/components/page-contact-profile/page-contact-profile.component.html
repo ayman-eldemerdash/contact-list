@@ -1,3 +1,32 @@
-<p>
-  page-contact-profile works!
-</p>
+<div class="row mx-3">
+  <div class="title col">
+    <p class="my-2">Add a New Contact</p>
+  </div>
+</div>
+
+<form #form="ngForm" class="mx-3" (ngSubmit)="addContact(form)">
+  <div class="row m-3">
+    <input #contactImage style="display:none" type="file" (change)="uploadPhoto($event)" class="form-control">
+    <div class="image mx-auto mt-4" (click)="contactImage.click()">
+      <img [src]="image?image:'../../../assets/user.svg'" width="100%" height="100%">
+    </div>
+    <p class="my-1 col-12 text-center" (click)="contactImage.click()">Add Photo</p>
+  </div>
+
+  <input ngModel name="firstName" id="firstName" #firstName="ngModel" maxlength="25"
+    class="col-12 custom-input my-2 py-2" type="text" placeholder="First Name">
+
+  <input ngModel name="lastName" id="lastName" #lastName="ngModel" maxlength="25" class="col-12 custom-input my-2 py-2"
+    type="text" placeholder="Last Name">
+
+  <input ngModel name="mobileNumber" id="mobileNumber" #mobileNumber="ngModel" class="col-12 custom-input my-2 py-2"
+    type="number" placeholder="Mobile Number">
+
+  <input ngModel name="email" id="email" #email="ngModel" maxlength="60" class="col-12 custom-input my-2 py-2"
+    type="text" placeholder="Email Address">
+
+  <button class="main-btn btn d-block mx-auto mt-4"
+    [disabled]="!firstName.value && !mobileNumber.value && !email.value">Add
+    Contact</button>
+  <button class="sec-btn btn d-block mx-auto mt-2" [routerLink]="['/contacts']">Cancel</button>
+</form>

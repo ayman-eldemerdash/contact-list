@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
         const results = [];
         for (const obj of list) {
           for (const key in obj) {
-            if (obj[key] && obj[key].toLowerCase().includes(searchString)) {
+            if (obj[key] && obj[key].toLowerCase().includes(searchString.toString())) {
               results.push(obj);
               break;
             }
